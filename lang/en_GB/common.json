@@ -36,11 +36,11 @@
 		]
 	},
 	"posts": {
-		"admin": "Admin",
+		"admin": "Židmin",
 		"ago": "ago",
 		"and": "and",
-		"anon": "Anonymous",
-		"banned": "USER WAS BANNED FOR THIS POST",
+		"anon": "Ďuri",
+		"banned": "Uživateľ bol za tento príspevok internovaný v Ilave",
 		"contractImages": "Contract Images",
 		"deleteBySameIP": "Delete all by IP",
 		"expand": "Expand",
