@@ -98,6 +98,9 @@ allow caching of generated posts.
 {% func CatalogThreads(b []common.Thread, json []byte) %}{% stripspace %}
 	<div id="catalog">
 		{% for _, t := range b %}
+      {% if t.Deleted %}
+        {% continue %}
+      {% endif %}
 			{% code idStr:= strconv.FormatUint(t.ID, 10) %}
 			{% code hasImage := t.Image != nil && t.Image.ThumbType != common.NoFile %}
 			<article id="p{%s= idStr %}" {%= postClass(t.Post, t.ID) %} data-id="{%s= idStr %}">
@@ -149,6 +152,9 @@ IndexThreads renders abbreviated threads for display on board index pages
 	{% code bls :=extractBacklinks(15*6, threads...) %}
 	<div id="index-thread-container">
 		{% for _, t := range threads %}
+      {% if t.Deleted %}
+        {% continue %}
+      {% endif %}
 			{% code idStr := strconv.FormatUint(t.ID, 10) %}
 			<section class="index-thread{% if t.Deleted %}{% space %}deleted{% endif %}" data-id="{%s= idStr %}">
 				{%= deletedToggle() %}
